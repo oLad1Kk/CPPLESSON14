@@ -17,5 +17,7 @@ public:
 	string getNumber()const;
 	string getStation()const;
 	string getDepartureTime()const;
+
+	bool operator<(const Train& right)const;
 };
 

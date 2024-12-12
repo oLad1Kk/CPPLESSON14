@@ -33,3 +33,8 @@ string Train::getDepartureTime() const
 {
     return departureTime;
 }
+
+bool Train::operator<(const Train& right) const
+{
+    return this->departureTime < right.departureTime;
+}
