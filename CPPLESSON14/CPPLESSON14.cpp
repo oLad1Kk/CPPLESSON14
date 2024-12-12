@@ -38,7 +38,23 @@ int main()
     {
         cout << p->getDepartureTime() << " " << p->getNumber() << " " << p->getStation() << endl;
 
-
+    }
+    cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+    string number;
+    cout << "Enter train number: "; cin >> number;
+    bool isFound = false;
+    for (auto item : schedule)
+    {
+        if (item.getNumber() == number)
+        {
+            item.show();
+            isFound = true;
+            break;
+        }
+    }
+    if (!isFound)
+    {
+        cout << "Not found\n";
     }
 
 

@@ -19,5 +19,7 @@ public:
 	string getDepartureTime()const;
 
 	bool operator<(const Train& right)const;
+
+	void show()const;
 };
 

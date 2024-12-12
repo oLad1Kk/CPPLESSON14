@@ -38,3 +38,10 @@ bool Train::operator<(const Train& right) const
 {
     return this->departureTime < right.departureTime;
 }
+
+void Train::show() const
+{
+    cout << "Number: " << number << endl;
+    cout << "Station: " << station << endl;
+    cout << "Departure time: " << departureTime << endl << endl;
+}
