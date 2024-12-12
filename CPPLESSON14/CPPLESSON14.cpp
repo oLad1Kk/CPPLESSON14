@@ -2,6 +2,7 @@
 #include "BinTree.h"
 #include "Train.h"
 #include <set>
+#include <algorithm>
 
 int main()
 {
@@ -39,7 +40,7 @@ int main()
         cout << p->getDepartureTime() << " " << p->getNumber() << " " << p->getStation() << endl;
 
     }
-    cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+    /*cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
     string number;
     cout << "Enter train number: "; cin >> number;
     bool isFound = false;
@@ -56,7 +57,40 @@ int main()
     {
         cout << "Not found\n";
     }
-
+    cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+    cout << "Enter time(hh-mm):\n";
+    cin >> number;
+    auto found = find_if(schedule.begin(), schedule.end(), [number](const Train obj) {return obj.getDepartureTime() > number; });
+    if (found == schedule.end())
+    {
+        cout << "Not found\n";
+    }
+    else
+    {
+        found->show();
+    }*/
+    cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+    string time = "";
+    cout << "Enter time: "; cin >> time;
+    bool isFound = false;
+    auto item = find_if(schedule.begin(), schedule.end(), [time](const Train obj) {
+        return obj.getDepartureTime() == time;
+        });
+    if (item == schedule.end())
+    {
+        cout << "Not found\n";
+    }
+    else
+    {
+        cout << "Canceled " << item->getNumber() << " " << item->getStation() << endl;
+        schedule.erase(item);
+    }
+    cout << endl;
+    for (auto obj : schedule)
+    {
+        obj.show();
+    }
+    cout << "-----------------------------------------\n";
 
 }
 
